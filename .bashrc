@@ -136,7 +136,7 @@ alias mcv='mvn clean verify'
 alias ll="ls -lAhF"
 alias up="~/.bash_scripts/up.sh"
 
-curl -sS https://starship.rs/install.sh | sh 1>/dev/null 2>/dev/null &
+curl -sS https://starship.rs/install.sh | sh
 
 eval "$(starship init bash)"
 
@@ -159,6 +159,6 @@ load-nvmrc() {
 #load-nvmrc
 
 
-curl -fsSL https://bun.sh/install | bash 1>/dev/null 2>/dev/null &
+curl -fsSL https://bun.sh/install | bash 
 
-curl -fsSL https://deno.land/x/install/install.sh | sh 1>/dev/null 2>/dev/null &
+curl -fsSL https://deno.land/x/install/install.sh | sh 
