@@ -1,0 +1,100 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = true
+format = """
+$git_branch
+[](#9A348E)\
+$time\
+[](fg:#9A348E bg:#33658A)\
+$sudo\
+$custom\
+[](fg:#33658A bg:#4de004)\
+$directory\
+[](fg:#4de004 bg:#86BBD8)\
+$git_status\
+$git_metrics\
+[](fg:#86BBD8 bg:#06969A)\
+$deno\
+$c\
+$elixir\
+$elm\
+$golang\
+$haskell\
+$java\
+$julia\
+$nodejs\
+$nim\
+$rust\
+[](fg:#06969A)\
+""" 
+[directory.substitutions]
+"Documents" = " "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"Code" = " "
+"Src" = " "
+"code" = " "
+"src" = " "
+"git" = " "
+"rigi" = " "
+"private" = ""
+"butterfly" = " "
+"tekton_test" = " "
+[username]
+show_always = true
+style_user = "bg:#9A348E"
+style_root = "bg:#9A348E"
+format = '[$user ]($style)'
+[directory]
+style = "fg:#FFFFFF bold bg:#4de004"
+format = "[ $path ]($style)"
+truncation_length = 8
+truncation_symbol = "../"
+truncate_to_repo = false
+[java]
+symbol = " "
+style = "fg:#FFFFFF bold bg:#06969A"
+format = '[ $symbol ($version) ]($style)'
+[nodejs]
+symbol = ""
+detect_extensions=[]
+style = "fg:#FFFFFF bold bg:#06969A"
+format = '[ $symbol ($version) ]($style)'
+[deno]
+detect_files = ["deno.json", "deno.jsonc", "mod.ts", "mod.js", "deps.ts", "deps.js", "main.ts", "main.tsx", "www.tsx", "main.js"]
+symbol = "deno"
+style = "fg:#FFFFFF bold bg:#06969A"
+format = "[ $symbol ($version) ]($style)"
+[git_branch]
+symbol = ""
+style = "fg:#6e6e6e"
+format = '[ $symbol $branch ]($style)'
+[git_status]
+style = "fg:#FFFFFF bold bg:#86BBD8"
+format = '[$all_status$ahead_behind]($style)'
+[git_metrics]
+added_style = "fg:#49ff07 bold bg:#86BBD8"
+deleted_style = "fg:#ea2326 bold bg:#86BBD8"
+format = '[+$added]($added_style)[/](bg:#86BBD8)[-$deleted]($deleted_style)'
+disabled = false
+## "" ${#output} > 0 ""
+[time]
+disabled = false
+style = "fg:#FFFFFF bold bg:#9A348E"
+format = '[$time ]($style)'
+time_format = "%T"
+[sudo]
+style = "fg:#FFFFFF bold bg:#33658A"
+symbol = "   "
+disabled = false
+format = "[$symbol]($style)"
+[package]
+format = "[  $version](fg:208 bg:#324e89)"
+[custom.openshift]
+disabled = false
+style = "fg:#FFFFFF bg:#33658A"
+when = "oc whoami"
+format = "[$output]($style)"
+command = "cat ~/.kube/config 2>/dev/null| grep -o '^current-context: [^/]*' | cut -d' ' -f2"
+
